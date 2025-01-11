@@ -32,13 +32,13 @@ export const GenrePill: React.FC<GenrePillProps> = ({
   const description = getGenreDescription(genre);
   
   return (
-    <div className={`${isSelected ? 'sm:col-span-5' : 'col-span-1'} h-full`}>
+    <div className={`${isSelected ? 'sm:col-span-5' : 'col-span-1'}`}>
       <div 
         role="button"
         tabIndex={0}
         onClick={onClick}
         onKeyDown={(e) => e.key === 'Enter' && onClick()}
-        className={`relative cursor-pointer rounded-lg h-full
+        className={`relative cursor-pointer rounded-lg
           ${isSelected 
             ? 'bg-blue-500 text-white hover:bg-blue-600' 
             : 'bg-gray-100 hover:bg-gray-200'}`}
@@ -49,7 +49,7 @@ export const GenrePill: React.FC<GenrePillProps> = ({
         </div>
 
         {isSelected && (
-          <div className="absolute left-0 right-0 top-full mt-2 bg-blue-500 text-white rounded-lg p-4 shadow-lg">
+          <div className="absolute left-0 right-0 top-full mt-2 bg-blue-500 text-white rounded-lg p-4 shadow-lg z-10">
             <p className="text-sm">{description}</p>
           </div>
         )}
