@@ -14,8 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application
 COPY backend/ .
 
-# Copy your trained model (adjust the path as needed)
-COPY model/ ./model/
+# Copy trained model from correct directory
+COPY trained_models/ ./model/
 
 # Expose the port your app runs on
 EXPOSE 5000
