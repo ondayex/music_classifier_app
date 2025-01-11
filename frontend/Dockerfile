@@ -22,9 +22,13 @@ COPY --chown=node:node . .
 # Build the application
 RUN npm run build
 
-# Move the build files to where nginx expects them
+# Make sure the directory exists and copy with proper permissions
+USER root
 RUN mkdir -p /usr/share/nginx/html && \
-    cp -r dist/* /usr/share/nginx/html/ || true
+    cp -r dist/* /usr/share/nginx/html/ && \
+    chown -R node:node /usr/share/nginx/html
+
+USER node
 
 EXPOSE 3000
 
