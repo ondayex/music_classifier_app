@@ -49,8 +49,8 @@ export const GenrePill: React.FC<GenrePillProps> = ({
         </div>
 
         {isSelected && (
-          <div className="absolute left-0 right-0 top-full mt-2 bg-blue-500 text-white rounded-lg p-4 shadow-lg z-10">
-            <p className="text-sm">{description}</p>
+          <div className="fixed left-1/2 transform -translate-x-1/2 bg-blue-500 text-white rounded-lg p-4 shadow-lg z-50 w-full max-w-2xl mx-auto mt-2">
+            <p className="text-sm text-center">{description}</p>
           </div>
         )}
       </div>

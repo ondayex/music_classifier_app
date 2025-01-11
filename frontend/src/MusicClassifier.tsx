@@ -157,18 +157,23 @@ const MusicClassifier: React.FC = () => {
   }, [file]);
 
   return (
-    <div className="max-w-2xl mx-auto p-4 space-y-6">
-      {/* Genre Pills - Add a fixed height container */}
-      <div className="relative min-h-[300px]">  {/* Add fixed minimum height */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 absolute w-full">
-          {genres.map((genre) => (
-            <GenrePill
-              key={genre}
-              genre={genre}
-              isSelected={selectedGenre === genre}
-              onClick={() => handleGenreClick(genre)}
-            />
-          ))}
+    <div className="max-w-2xl mx-auto space-y-6">
+      {/* Genre Pills Container */}
+      <div className="relative">
+        {/* Fixed height spacer */}
+        <div className="h-[300px]" />
+        {/* Absolute positioned grid */}
+        <div className="absolute top-0 left-0 right-0">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            {genres.map((genre) => (
+              <GenrePill
+                key={genre}
+                genre={genre}
+                isSelected={selectedGenre === genre}
+                onClick={() => handleGenreClick(genre)}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
