@@ -1,5 +1,4 @@
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
 import { GenreIcon } from './genre-icon';
 
 interface GenrePillProps {
@@ -7,22 +6,6 @@ interface GenrePillProps {
   isSelected: boolean;
   onClick: () => void;
 }
-
-const getGenreDescription = (genre: string): string => {
-  const descriptions: Record<string, string> = {
-    Blues: "Soulful music characterized by call-and-response patterns and blue notes",
-    Classical: "Traditional Western music from the Middle Ages to the present day",
-    Country: "American folk music with rural roots and simple harmonies",
-    Disco: "Upbeat dance music from the 1970s with a strong beat and bassline",
-    HipHop: "Urban music characterized by rhythmic vocals and backing beats",
-    Jazz: "Complex, improvisational music with swing and blue notes",
-    Metal: "Heavy rock music with intense, amplified distortion and powerful vocals",
-    Pop: "Contemporary popular music with catchy melodies and rhythms",
-    Reggae: "Jamaican music characterized by offbeat rhythms and social messages",
-    Rock: "Guitar-driven music with strong beats and varied stylistic influences"
-  };
-  return descriptions[genre] || "Genre description not available";
-};
 
 export const GenrePill: React.FC<GenrePillProps> = ({ 
   genre, 
