@@ -15,10 +15,8 @@ RUN pip install --no-cache-dir -r requirements.txt && \
 # Copy the rest of the application
 COPY backend/ .
 
-# No need for extra COPY command since the model is already in backend/trained_models/
-
 # Expose the port your app runs on
 EXPOSE 5000
 
-# Command to run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi:app"] 
+# Update the command to use the correct path to wsgi.py
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"] 
