@@ -158,24 +158,28 @@ const MusicClassifier: React.FC = () => {
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
-      {/* Genre Pills Container */}
-      <div className="relative">
-        {/* Fixed height spacer */}
-        <div className="h-[300px]" />
-        {/* Absolute positioned grid */}
-        <div className="absolute top-0 left-0 right-0">
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
-            {genres.map((genre) => (
-              <GenrePill
-                key={genre}
-                genre={genre}
-                isSelected={selectedGenre === genre}
-                onClick={() => handleGenreClick(genre)}
-              />
-            ))}
-          </div>
+      {/* Genre Pills Container with fixed height */}
+      <div className="h-[100px] relative">  {/* Reduced fixed height */}
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+          {genres.map((genre) => (
+            <GenrePill
+              key={genre}
+              genre={genre}
+              isSelected={selectedGenre === genre}
+              onClick={() => handleGenreClick(genre)}
+            />
+          ))}
         </div>
       </div>
+
+      {/* Description overlay */}
+      {selectedGenre && (
+        <div className="bg-blue-500 text-white rounded-lg p-4 shadow-lg">
+          <p className="text-sm text-center">
+            {getGenreDescription(selectedGenre)}
+          </p>
+        </div>
+      )}
 
       {/* Upload Area */}
       <div

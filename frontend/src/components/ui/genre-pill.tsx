@@ -29,30 +29,20 @@ export const GenrePill: React.FC<GenrePillProps> = ({
   isSelected, 
   onClick
 }) => {
-  const description = getGenreDescription(genre);
-  
   return (
-    <div className={`${isSelected ? 'sm:col-span-5' : 'col-span-1'}`}>
-      <div 
-        role="button"
-        tabIndex={0}
-        onClick={onClick}
-        onKeyDown={(e) => e.key === 'Enter' && onClick()}
-        className={`relative cursor-pointer rounded-lg
-          ${isSelected 
-            ? 'bg-blue-500 text-white hover:bg-blue-600' 
-            : 'bg-gray-100 hover:bg-gray-200'}`}
-      >
-        <div className="flex items-center justify-center gap-2 p-2">
-          <GenreIcon genre={genre} />
-          <span className="truncate text-sm">{genre}</span>
-        </div>
-
-        {isSelected && (
-          <div className="fixed left-1/2 transform -translate-x-1/2 bg-blue-500 text-white rounded-lg p-4 shadow-lg z-50 w-full max-w-2xl mx-auto mt-2">
-            <p className="text-sm text-center">{description}</p>
-          </div>
-        )}
+    <div 
+      role="button"
+      tabIndex={0}
+      onClick={onClick}
+      onKeyDown={(e) => e.key === 'Enter' && onClick()}
+      className={`cursor-pointer rounded-lg transition-colors
+        ${isSelected 
+          ? 'bg-blue-500 text-white hover:bg-blue-600' 
+          : 'bg-gray-100 hover:bg-gray-200'}`}
+    >
+      <div className="flex items-center justify-center gap-2 p-2">
+        <GenreIcon genre={genre} />
+        <span className="truncate text-sm">{genre}</span>
       </div>
     </div>
   );
